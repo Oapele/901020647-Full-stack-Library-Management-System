@@ -1,6 +1,7 @@
 // db.js — PostgreSQL connection + automatic table setup.
 // The app reads DATABASE_URL from the environment. On Render you set it as an
 // environment variable; locally you can use the default below or create a .env file.
+require('dotenv').config();
 const { Pool } = require('pg');
 
 const pool = new Pool({
