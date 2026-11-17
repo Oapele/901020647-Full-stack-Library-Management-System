@@ -21,7 +21,7 @@ library-system/
 │   ├── package.json
 │   ├── server.js          all routes (books / users / transactions / login)
 │   ├── db.js              pg connection + auto-create tables + seed data
-│   └── .env.example       copy to .env and set DATABASE_URL
+│  
 └── frontend/              React (Vite) + React Router
     ├── package.json
     ├── vite.config.js
