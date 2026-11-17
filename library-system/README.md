@@ -34,3 +34,9 @@ library-system/
         ├── components/    BookForm.jsx, UserForm.jsx (reusable)
         └── pages/         Dashboard.jsx, Books.jsx, Transactions.jsx, Users.jsx
 ```
+## How to run locally
+1. In pgAdmin, create an empty database named exactly `library`.
+2. In `backend/`: copy `.env.example` to `.env` and put your Postgres password in `DATABASE_URL`.
+3. `cd backend && npm install && npm start` → API runs on http://localhost:3000 (check http://localhost:3000/api/health).
+4. `cd frontend && npm install && npm run dev` → open http://localhost:5173.
+5. Log in with membership ID `ADMIN001` (auto-created, along with 3 sample books, on first run).
