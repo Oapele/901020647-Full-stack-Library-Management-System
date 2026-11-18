@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 
 // Reusable controlled form for adding OR editing a book.
-// Pass `initial` (a book object) to switch to edit mode; quantity is hidden in
-// edit mode because stock changes happen through Transactions instead.
 export default function BookForm({ initial, onSubmit, submitLabel = 'Add Book' }) {
   const [form, setForm] = useState({
     title: '', author: '', genre: '', isbn: '', initial_quantity: 1,
