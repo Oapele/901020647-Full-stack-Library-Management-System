@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 
 // Reusable controlled form for adding OR editing a user.
-// Pass `initial` (a user object) to switch to edit mode.
 export default function UserForm({ initial, onSubmit, submitLabel = 'Add User' }) {
   const [form, setForm] = useState({ name: '', membership_id: '', role: 'member' });
   const [error, setError] = useState('');
