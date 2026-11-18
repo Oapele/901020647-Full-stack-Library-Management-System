@@ -4,7 +4,6 @@ import UserForm from '../components/UserForm.jsx';
 
 // User Management page. If not logged in, shows the login form (membership ID).
 // Once logged in as admin, shows add/edit/delete user controls. A normal member
-// sees a welcome message only.
 export default function Users({ currentUser, onLogin }) {
   const [membershipId, setMembershipId] = useState('');
   const [loginError, setLoginError] = useState('');
@@ -30,7 +29,6 @@ export default function Users({ currentUser, onLogin }) {
     }
   };
 
-  // ---- Not logged in: show login form ----
   if (!currentUser) {
     return (
       <div className="login-wrap">
@@ -52,7 +50,6 @@ export default function Users({ currentUser, onLogin }) {
     );
   }
 
-  // ---- Logged in ----
   const handleAdd = async (user) => {
     setError(''); setMessage('');
     try { await api.addUser(user); setMessage('User added.'); loadUsers(); }
