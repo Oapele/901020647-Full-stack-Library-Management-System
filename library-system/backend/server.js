@@ -1,10 +1,4 @@
-// server.js — Express REST API for the Library Management System.
-// Endpoints:
-//   GET    /api/health
-//   GET    /api/books            POST /api/books          PUT /api/books/:id   DELETE /api/books/:id
-//   GET    /api/users            POST /api/users          PUT /api/users/:id   DELETE /api/users/:id
-//   POST   /api/users/login      (login by membership_id)
-//   GET    /api/transactions     POST /api/transactions   (add / borrow / return stock)
+
 const express = require('express');
 const cors = require('cors');
 const { pool, initTables } = require('./db');
@@ -15,12 +9,10 @@ app.use(express.json());    // parse JSON request bodies
 
 const PORT = process.env.PORT || 3000;
 
-// ---------- Health check ----------
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-// ==================== BOOKS ====================
 app.get('/api/books', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM books ORDER BY id ASC');
@@ -83,7 +75,6 @@ app.delete('/api/books/:id', async (req, res) => {
   }
 });
 
-// ==================== USERS ====================
 app.get('/api/users', async (req, res) => {
   try {
     const result = await pool.query(
@@ -167,7 +158,6 @@ app.post('/api/users/login', async (req, res) => {
   }
 });
 
-// ==================== TRANSACTIONS (stock in / out) ====================
 app.get('/api/transactions', async (req, res) => {
   try {
     const result = await pool.query(
